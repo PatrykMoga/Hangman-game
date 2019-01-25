@@ -94,8 +94,15 @@ namespace ConsoleUI.Controllers.Game
                     {
                         _view.DisplayLength();
                         _view.AskForIndex(ch);
-                        var input = ReadLine();
-                        _game.EliminateWords(ch, int.Parse(input));
+                        while (true)
+                        {
+                            var input = ReadLine();
+                            if (int.TryParse(input, out int index))
+                            {
+                                _game.EliminateWords(ch, index);
+                                break;
+                            }
+                        }
                         if (_game.OneWordLeft || _game.NoWordsLeft)
                         {
                             break;

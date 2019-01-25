@@ -184,11 +184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\source\\repos\\HangmanGame\\HangmanLibrary\\HangmanLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\admin\\Documents\\GitHub\\Hangman-game\\HangmanLibrary\\HangmanLibrary.csproj",
       "projectName": "HangmanLibrary",
-      "projectPath": "C:\\Users\\admin\\source\\repos\\HangmanGame\\HangmanLibrary\\HangmanLibrary.csproj",
+      "projectPath": "C:\\Users\\admin\\Documents\\GitHub\\Hangman-game\\HangmanLibrary\\HangmanLibrary.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\source\\repos\\HangmanGame\\HangmanLibrary\\obj\\",
+      "outputPath": "C:\\Users\\admin\\Documents\\GitHub\\Hangman-game\\HangmanLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
