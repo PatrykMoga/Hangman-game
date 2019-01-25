@@ -1,0 +1,9 @@
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\bin\Debug\netstandard2.0\HangmanLibrary.deps.json
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\bin\Debug\netstandard2.0\HangmanLibrary.dll
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\bin\Debug\netstandard2.0\HangmanLibrary.pdb
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\obj\Debug\netstandard2.0\HangmanLibrary.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\obj\Debug\netstandard2.0\HangmanLibrary.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\obj\Debug\netstandard2.0\HangmanLibrary.AssemblyInfo.cs
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\obj\Debug\netstandard2.0\HangmanLibrary.dll
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\obj\Debug\netstandard2.0\HangmanLibrary.pdb
+C:\Users\admin\source\repos\HangmanGame\HangmanLibrary\obj\Debug\netstandard2.0\HangmanLibrary.csprojAssemblyReference.cache
