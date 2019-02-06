@@ -1,52 +1,34 @@
 ﻿using HangmanLibrary.Extensions;
 using HangmanLibrary.FileGlossary;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HangmanLibrary.Models
 {
-    public class VsComputer : Game
+    public class VsComputer : Game, IKeywordAssemblable, ILifeable
     {
         public string Keyword { get; }
-        public StringBuilder KeywordAssembler { get; }
         public HashSet<char> Missplaced { get; }
-        public int Lifes { get; set; }
-        
-        public VsComputer(IGlossary glossary, int lifes) : base(glossary)
+        public byte Lifes { get; set; }
+
+        private readonly KeywordAssembler _assembler;
+
+        public VsComputer(IGlossary glossary, byte lifes) : base(glossary)
         {
             Keyword = Words.GetRandomElement();
-            KeywordAssembler = new StringBuilder();
-            Missplaced = new HashSet<char>();           
+            _assembler = new KeywordAssembler(this);
+            Missplaced = new HashSet<char>();
             Lifes = lifes;
-
-            for (int i = 0; i < Keyword.Length; i++)
-            {
-                if (Keyword[i] == ' ')
-                {
-                    KeywordAssembler.Append(' ');
-                }
-                else
-                {
-                    KeywordAssembler.Append('_');
-                }
-            }  
         }
 
-        private void UpdateAssembler(string input)
-        {
-            for (int j = 0; j < Keyword.Length; j++)
-            {
-                if (Keyword[j] == input[0])
-                {
-                    KeywordAssembler[j] = Keyword[j];
-                }
-            }
-        }
         public bool HasLifes => Lifes > 0;
 
-        public bool KeywordContain(char ch) => Keyword.Contains(ch.ToString()); // ?
+        public bool KeywordContain(char ch) => Keyword.Contains(ch.ToString());
 
-        public bool WordsMatched => Keyword == KeywordAssembler.ToString();
+        public bool WordsMatched => Keyword == _assembler.Assembler.ToString();
+
+        public string HiddenKeywordView => _assembler.bla;
 
         public void WinGame() => Won = true;
 
@@ -58,6 +40,6 @@ namespace HangmanLibrary.Models
             Lifes--;
         }
 
-        public void PlayerHit(string input) => UpdateAssembler(input);
+        public void PlayerHit(string input) => _assembler.UpdateAssembler(input);
     }
 }

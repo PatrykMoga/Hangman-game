@@ -13,6 +13,7 @@ namespace ConsoleUI.Controllers.Game
         public MenuController()
         {
             _menuView = new MenuView();
+
             //Temporarily solution
             _glossary = new FileGlossary();
         }

@@ -32,7 +32,7 @@ namespace ConsoleUI.Controllers.Game
                 }
             }
 
-            _game.UpdateAvailableCharacters();
+            _game.CharacterUpdater.UpdateAvailableCharacters();
 
             while (true)
             {                
@@ -48,8 +48,8 @@ namespace ConsoleUI.Controllers.Game
                         _view.AddingWord();
                         var word = ReadLine();
                         _game.AddWord(input);
-
                     }
+
                     break;
                 }
 
@@ -84,13 +84,13 @@ namespace ConsoleUI.Controllers.Game
                     _view.AskIfContain(randomCharacter);
                     var input = ReadLine();
 
-                    _game.CheckIfContains(randomCharacter, input);
-                    
+                    _game.CheckIfContains(randomCharacter, input);            
                 }
+
                 if (!_game.CharactersAreAvailable)
                 {
                     Clear();
-                    foreach (var ch in _game.UsedCharacters)
+                    foreach (var ch in _game.CharacterUpdater.UsedCharacters)
                     {
                         _view.DisplayLength();
                         _view.AskForIndex(ch);
@@ -99,7 +99,7 @@ namespace ConsoleUI.Controllers.Game
                             var input = ReadLine();
                             if (int.TryParse(input, out int index))
                             {
-                                _game.EliminateWords(ch, index);
+                                _game.WordsEliminator.EliminateWords(ch, index);
                                 break;
                             }
                         }

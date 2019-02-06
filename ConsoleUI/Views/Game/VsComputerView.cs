@@ -36,9 +36,8 @@ namespace ConsoleUI.Views.Game
                     _userInterface.Append($"{item} ");
                 }
             }
-
-            var HiddenKeywordView = string.Join(" ", _game.KeywordAssembler.ToString().ToCharArray());
-            _userInterface.AppendLine("\n\n " + HiddenKeywordView);
+         
+            _userInterface.AppendLine("\n\n " + _game.HiddenKeywordView);
             WriteLine(_userInterface);
         }
 

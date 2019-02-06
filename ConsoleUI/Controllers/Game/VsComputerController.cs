@@ -34,7 +34,7 @@ namespace ConsoleUI.Controllers.Game
                     if (_game.PlayerEnteredKeyword(input))
                     {
                         _game.WinGame();
-                        break;                
+                        break;
                     }
 
                     if (_game.KeywordContain(input[0]))
