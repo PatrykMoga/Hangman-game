@@ -1,10 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Autofac;
+using HangmanLibrary.Glossary;
 
 namespace ConsoleUI
 {
-    class ContainerConfig
+    public static class ContainerConfig
     {
+        public static IContainer Configure()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<Application>();
+            builder.RegisterType<FileGlossary>().As<IGlossary>();
+
+
+            return builder.Build();
+        }
     }
 }

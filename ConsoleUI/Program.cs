@@ -1,5 +1,4 @@
-﻿
-using static System.Console;
+﻿using Autofac;
 
 namespace ConsoleUI
 {
@@ -7,8 +6,13 @@ namespace ConsoleUI
     {
 
         static void Main(string[] args)
-        {          
-           
+        {
+            var container = ContainerConfig.Configure();
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var app = scope.Resolve<Application>();
+                app.Run();
+            }
         }
     }
 }
