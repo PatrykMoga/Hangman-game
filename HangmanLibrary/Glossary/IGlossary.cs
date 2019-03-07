@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace HangmanLibrary.FileGlossary
+namespace HangmanLibrary.Glossary
 {
     public interface IGlossary
     {
-        HashSet<string> Words { get;  set; }
+        HashSet<string> Words { get; set; }
         bool BeenUpdated { get; set; }
 
         void AddWord(string word);

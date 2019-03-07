@@ -1,16 +1,17 @@
-﻿using ConsoleUI.Controllers.Game;
-using static System.Console;
+﻿using Autofac;
 
 namespace ConsoleUI
 {
-    static class Program
+    internal static class Program
     {
-
-        static void Main(string[] args)
-        {          
-            Title = args[0];
-            var controller = new MenuController();
-            controller.ShowMenu();
+        private static void Main()
+        {
+            var container = ContainerConfig.Configure();
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var app = scope.Resolve<IMenuController>();
+                app.ShowMenu();
+            }
         }
     }
 }

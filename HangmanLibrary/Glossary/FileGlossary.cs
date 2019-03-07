@@ -1,8 +1,7 @@
-﻿using HangmanLibrary.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
-namespace HangmanLibrary.FileGlossary
+namespace HangmanLibrary.Glossary
 {
     public class FileGlossary : IGlossary
     {
@@ -18,7 +17,7 @@ namespace HangmanLibrary.FileGlossary
 
             using (var streamReader = new StreamReader(_path))
             {
-                string line;             
+                string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
                     Words.Add(line.ToLower().Trim());
@@ -28,7 +27,7 @@ namespace HangmanLibrary.FileGlossary
 
         public void AddWord(string word)
         {
-            using (var streamWriter = new StreamWriter(_path,true))
+            using (var streamWriter = new StreamWriter(_path, true))
             {
                 streamWriter.WriteLine(word.Trim());
             }
