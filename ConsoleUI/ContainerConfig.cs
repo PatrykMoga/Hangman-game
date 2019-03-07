@@ -19,7 +19,7 @@ namespace ConsoleUI
 
             builder.RegisterType<MenuController>();
             builder.RegisterType<MenuItem>();
-            builder.RegisterType<MenuService>();
+            builder.RegisterType<MenuService>().As<IMenuService>();
             return builder.Build();
         }
     }

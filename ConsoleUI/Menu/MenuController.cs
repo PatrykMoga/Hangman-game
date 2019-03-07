@@ -5,9 +5,9 @@ namespace ConsoleUI
 {
     public class MenuController
     {
-        public MenuService MenuService { get; }
+        public IMenuService MenuService { get; }
 
-        public MenuController( MenuService menuService)
+        public MenuController(IMenuService menuService)
         {
             MenuService = menuService;
 

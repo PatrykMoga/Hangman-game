@@ -3,7 +3,7 @@ using static System.Console;
 
 namespace ConsoleUI
 {
-    public class MenuService
+    public class MenuService : IMenuService
     {
         private int _index = 1;
         public Dictionary<int, MenuItem> MenuItems { get; set; }
