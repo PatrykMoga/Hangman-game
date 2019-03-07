@@ -8,10 +8,11 @@ namespace ConsoleUI
 {
     public static class Scopes
     {
+        private static IContainer _container = ContainerConfig.Configure();
+
         public static void VsComputerScope()
-        {
-            var container = ContainerConfig.Configure();
-            using (var scope = container.BeginLifetimeScope(builder =>
+        {          
+            using (var scope = _container.BeginLifetimeScope(builder =>
             {
                 builder.RegisterType<VsComputer>().AsSelf()
                     .As<IHasKeyword>().As<IHasLifes>().SingleInstance();
@@ -25,8 +26,7 @@ namespace ConsoleUI
 
         public static void VsPlayerScope()
         {
-            var container = ContainerConfig.Configure();
-            using (var scope = container.BeginLifetimeScope(builder =>
+            using (var scope = _container.BeginLifetimeScope(builder =>
             {
                 builder.RegisterType<VsPlayer>().AsSelf()
                     .As<IHasBuffer>().SingleInstance();

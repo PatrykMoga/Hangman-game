@@ -3,7 +3,7 @@ using static System.Console;
 
 namespace ConsoleUI
 {
-    public class MenuController
+    public class MenuController : IMenuController
     {
         public IMenuService MenuService { get; }
 

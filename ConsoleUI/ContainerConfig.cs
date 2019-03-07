@@ -17,9 +17,9 @@ namespace ConsoleUI
             builder.RegisterType<WordsEliminator>().As<IWordsEliminator>();
             builder.RegisterType<BufferManager>().As<IBufferManager>();
 
-            builder.RegisterType<MenuController>();
-            builder.RegisterType<MenuItem>();
+            builder.RegisterType<MenuController>().As<IMenuController>();           
             builder.RegisterType<MenuService>().As<IMenuService>();
+            builder.RegisterType<MenuItem>();
             return builder.Build();
         }
     }
