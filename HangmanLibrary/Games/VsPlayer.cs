@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HangmanLibrary.Components
+namespace HangmanLibrary.Games
 {
     public class VsPlayer
     {

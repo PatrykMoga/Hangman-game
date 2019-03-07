@@ -1,4 +1,6 @@
-﻿namespace HangmanLibrary.Components
+﻿using HangmanLibrary.Components;
+
+namespace HangmanLibrary.Games
 {
     public interface IVsComputerProvider
     {

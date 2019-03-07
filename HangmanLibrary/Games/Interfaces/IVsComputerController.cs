@@ -1,4 +1,4 @@
-﻿namespace HangmanLibrary.Components
+﻿namespace HangmanLibrary.Games
 {
     public interface IVsComputerController
     {

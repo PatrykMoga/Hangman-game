@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using HangmanLibrary.Components;
+using HangmanLibrary.Games;
 using HangmanLibrary.Glossary;
 
 namespace ConsoleUI
@@ -16,8 +17,7 @@ namespace ConsoleUI
                 .As<IHasKeyword>().As<IHasLifes>().SingleInstance();
             builder.RegisterType<VsComputerProvider>().As<IVsComputerProvider>();
             builder.RegisterType<VsComputerController>().As<IVsComputerController>();
-            builder.RegisterType<VsPlayer>();
-            builder.RegisterType<VsPlayerService>();            
+            builder.RegisterType<VsPlayer>();         
             builder.RegisterType<KeywordAssembler>().As<IKeywordAssembler>();
             builder.RegisterType<LifeController>().As<ILifeController>();
             return builder.Build();

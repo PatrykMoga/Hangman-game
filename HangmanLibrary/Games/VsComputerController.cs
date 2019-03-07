@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-namespace HangmanLibrary.Components
+namespace HangmanLibrary.Games
 {
     public class VsComputerController : IVsComputerController
     {

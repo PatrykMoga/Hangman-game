@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using HangmanLibrary.Components;
 
-namespace HangmanLibrary.Components
+namespace HangmanLibrary.Games
 {
     public class VsComputer : IHasKeyword, IHasLifes, IWinnable
     {

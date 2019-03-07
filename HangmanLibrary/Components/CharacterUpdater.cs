@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HangmanLibrary.Games; // temp
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HangmanLibrary.Components

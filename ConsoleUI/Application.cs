@@ -1,4 +1,5 @@
 ﻿using HangmanLibrary.Components;
+using HangmanLibrary.Games;
 using HangmanLibrary.Glossary;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,10 @@ namespace ConsoleUI
     public class Application
     {
         private IGlossary _glossary;
-        private VsPlayerService _vsPlayerService;
         private IVsComputerController _vsComputerController;
-        public Application(IGlossary glossary, VsPlayerService vsPlayerService, IVsComputerController vsComputerController)
+        public Application(IGlossary glossary, IVsComputerController vsComputerController)
         {
-            _glossary = glossary;
-            _vsPlayerService = vsPlayerService;
+            _glossary = glossary;        
             _vsComputerController = vsComputerController;
         }
 
