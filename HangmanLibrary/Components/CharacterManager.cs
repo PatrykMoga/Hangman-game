@@ -1,19 +1,18 @@
-﻿using HangmanLibrary.Games; // temp
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace HangmanLibrary.Components
 {
-    public class CharacterUpdater
+    public class CharacterManager : ICharacterManager
     {
-        private VsPlayer _vsComputer;
+        public IHasBuffer HasBuffer { get; }
 
         public HashSet<char> AvailableCharacters { get; }
         public HashSet<char> UsedCharacters { get; }
 
-        public CharacterUpdater(VsPlayer vsComputer)
+        public CharacterManager(IHasBuffer hasBuffer)
         {
-            _vsComputer = vsComputer;
+            HasBuffer = hasBuffer;
 
             AvailableCharacters = new HashSet<char>();
             UsedCharacters = new HashSet<char>();
@@ -32,13 +31,16 @@ namespace HangmanLibrary.Components
 
         public void UpdateAvailableCharacters()
         {
-            for (int i = 0; i < _vsComputer.WordsBuffer.Count; i++)
+            for (int i = 0; i < HasBuffer.WordsBuffer.Count; i++)
             {
-                for (int j = 0; j < _vsComputer.WordsBuffer[i].Length; j++)
+                for (int j = 0; j < HasBuffer.WordsBuffer[i].Length; j++)
                 {
-                    AvailableCharacters.Add(_vsComputer.WordsBuffer[i][j]);
+                    AvailableCharacters.Add(HasBuffer.WordsBuffer[i][j]);
                 }
             }
         }
+
+        public char GetRandomCharacter() => AvailableCharacters.ToList().GetRandomElement();
+        public bool CharactersAreAvailable => AvailableCharacters.Count > 0;
     }
 }

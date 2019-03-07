@@ -1,6 +1,6 @@
 ﻿using HangmanLibrary.Components;
 
-namespace HangmanLibrary.Games
+namespace HangmanLibrary.Games.VsComputer
 {
     public interface IVsComputerProvider
     {

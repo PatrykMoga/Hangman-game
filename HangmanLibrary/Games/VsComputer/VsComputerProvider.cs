@@ -1,6 +1,6 @@
 ﻿using HangmanLibrary.Components;
 
-namespace HangmanLibrary.Games
+namespace HangmanLibrary.Games.VsComputer
 {
     public class VsComputerProvider : IVsComputerProvider
     {
@@ -17,7 +17,7 @@ namespace HangmanLibrary.Games
         {
             Game = vsComputer;
             WordsProvider = wordsProvider;
-            Game.Keyword = WordsProvider.Words.GetRandomElement();
+            Game.Keyword = WordsProvider.WordsList.GetRandomElement();
             KeywordAssembler = keywordAssembler;
             KeywordAssembler.UpdateAssembler();
             LifeController = lifeController;

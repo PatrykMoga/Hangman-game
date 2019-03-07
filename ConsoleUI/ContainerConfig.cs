@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using HangmanLibrary.Components;
-using HangmanLibrary.Games;
 using HangmanLibrary.Glossary;
 
 namespace ConsoleUI
@@ -12,14 +11,17 @@ namespace ConsoleUI
             var builder = new ContainerBuilder();
             builder.RegisterType<Application>();
             builder.RegisterType<FileGlossary>().As<IGlossary>().SingleInstance();
-            builder.RegisterType<WordsProvider>().As<IWordsProvider>().SingleInstance();                     
-            builder.RegisterType<VsComputer>().AsSelf()
-                .As<IHasKeyword>().As<IHasLifes>().SingleInstance();
-            builder.RegisterType<VsComputerProvider>().As<IVsComputerProvider>();
-            builder.RegisterType<VsComputerController>().As<IVsComputerController>();
-            builder.RegisterType<VsPlayer>();         
+            builder.RegisterType<WordsProvider>().As<IWordsProvider>().SingleInstance();                                     
             builder.RegisterType<KeywordAssembler>().As<IKeywordAssembler>();
             builder.RegisterType<LifeController>().As<ILifeController>();
+            builder.RegisterType<CharacterManager>().As<ICharacterManager>();
+            builder.RegisterType<WordsEliminator>().As<IWordsEliminator>();
+            builder.RegisterType<BufferManager>().As<IBufferManager>();
+
+            builder.RegisterType<Menu>();
+            builder.RegisterType<MenuController>();
+            builder.RegisterType<MenuItem>();
+            builder.RegisterType<MenuService>();
             return builder.Build();
         }
     }

@@ -1,64 +1,65 @@
-﻿using static System.Console;
+﻿using HangmanLibrary.Games.VsComputer;
+using static System.Console;
 
-namespace HangmanLibrary.Games
+namespace ConsoleUI.Controllers
 {
     public class VsComputerController : IVsComputerController
     {
-        public IVsComputerProvider Provider { get; }
+        public IVsComputerProvider GameProvider { get; }
 
         public VsComputerController(IVsComputerProvider provider)
         {
-            Provider = provider;
+            GameProvider = provider;
         }
 
         public void StartGame()
         {
-            while (Provider.Game.HasLifes)
+            while (GameProvider.Game.HasLifes)
             {
                 Clear();
                 WriteLine("In this game mode you have to guess the word randomly selected by the computer.");
                 WriteLine("You can type a character or whole word. Every time you miss you lose one life.");
                 WriteLine("The game will end when you guess the word or lose all lifes.");
 
-                WriteLine($"\nYou have {Provider.Game.Lifes} lifes left!");
+                WriteLine($"\nYou have {GameProvider.Game.Lifes} lifes left!");
                 Write("\nMissplaced characters: ");
 
-                if (Provider.LifeController.Missplaced.Count > 0)
+                if (GameProvider.LifeController.Missplaced.Count > 0)
                 {
-                    foreach (var item in Provider.LifeController.Missplaced)
+                    foreach (var item in GameProvider.LifeController.Missplaced)
                     {
                         Write($"{item} ");
                     }
                 }
 
-                var HiddenKeywordView = string.Join(" ", Provider.KeywordAssembler.ToString());
+                var HiddenKeywordView = string.Join(" ", GameProvider.KeywordAssembler.ToString());
                 WriteLine($"\n\n {HiddenKeywordView}\n");
 
-                if (Provider.WordsMatched)
+                if (GameProvider.WordsMatched)
                 {
-                    Provider.Game.WinGame();
+                    GameProvider.Game.WinGame();
                     break;
                 }
                 var input = ReadLine();
                 if (!string.IsNullOrWhiteSpace(input))
                 {
-                    if (Provider.Game.PlayerEnteredKeyword(input))
+                    if (GameProvider.Game.PlayerEnteredKeyword(input))
                     {
-                        Provider.Game.WinGame();
+                        GameProvider.Game.WinGame();
                         break;
                     }
 
-                    if (Provider.Game.KeywordContain(input[0]))
+                    if (GameProvider.Game.KeywordContain(input[0]))
                     {
-                        Provider.PlayerHit(input);
+                        GameProvider.PlayerHit(input);
                     }
                     else
                     {
-                        Provider.LifeController.PlayerMissed(input);
+                        GameProvider.LifeController.PlayerMissed(input);
                     }
                 }
             }
-            WriteLine(Provider.Game.Won ? "Congratulations you won!" : $"Unfortunately you lost. The keyword was: \"{Provider.Game.Keyword}\"");
+            WriteLine(GameProvider.Game.Won ? "Congratulations you won!" : $"Unfortunately you lost. The keyword was: \"{GameProvider.Game.Keyword}\"");
             ReadKey();
         }
     }

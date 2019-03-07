@@ -9,18 +9,15 @@ namespace ConsoleUI
 {
     public class Application
     {
-        private IGlossary _glossary;
-        private IVsComputerController _vsComputerController;
-        public Application(IGlossary glossary, IVsComputerController vsComputerController)
-        {
-            _glossary = glossary;        
-            _vsComputerController = vsComputerController;
-        }
+        private MenuController _menuController;
 
+        public Application(MenuController menuController)
+        {
+            _menuController = menuController;
+        }
         public void Run()
         {
-            _vsComputerController.StartGame();
-            
+            _menuController.ShowMenu();
         }
     }
 }
