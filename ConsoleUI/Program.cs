@@ -9,8 +9,8 @@ namespace ConsoleUI
             var container = ContainerConfig.Configure();
             using (var scope = container.BeginLifetimeScope())
             {
-                var app = scope.Resolve<Application>();
-                app.Run();
+                var app = scope.Resolve<MenuController>();
+                app.ShowMenu();
             }
         }
     }

@@ -9,7 +9,6 @@ namespace ConsoleUI
         public static IContainer Configure()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<Application>();
             builder.RegisterType<FileGlossary>().As<IGlossary>().SingleInstance();
             builder.RegisterType<WordsProvider>().As<IWordsProvider>().SingleInstance();                                     
             builder.RegisterType<KeywordAssembler>().As<IKeywordAssembler>();
@@ -18,7 +17,6 @@ namespace ConsoleUI
             builder.RegisterType<WordsEliminator>().As<IWordsEliminator>();
             builder.RegisterType<BufferManager>().As<IBufferManager>();
 
-            builder.RegisterType<Menu>();
             builder.RegisterType<MenuController>();
             builder.RegisterType<MenuItem>();
             builder.RegisterType<MenuService>();

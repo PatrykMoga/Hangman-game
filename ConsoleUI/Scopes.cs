@@ -3,21 +3,12 @@ using ConsoleUI.Controllers;
 using HangmanLibrary.Components;
 using HangmanLibrary.Games.VsComputer;
 using HangmanLibrary.Games.VsPlayer;
-using HangmanLibrary.Glossary;
 
 namespace ConsoleUI
 {
-    public class Menu
+    public static class Scopes
     {
-        public IGlossary Glossary { get; }
-      
-
-        public Menu(IGlossary glossary)
-        {
-            Glossary = glossary; 
-        }
-
-        public void VsComputerScope()
+        public static void VsComputerScope()
         {
             var container = ContainerConfig.Configure();
             using (var scope = container.BeginLifetimeScope(builder =>
@@ -27,12 +18,12 @@ namespace ConsoleUI
                 builder.RegisterType<VsComputerProvider>().As<IVsComputerProvider>();
                 builder.RegisterType<VsComputerController>().As<IVsComputerController>();
             }))
-            {                          
-                scope.Resolve<IVsComputerController>().StartGame();                
+            {
+                scope.Resolve<IVsComputerController>().StartGame();
             }
         }
 
-        public void VsPlayerScope()
+        public static void VsPlayerScope()
         {
             var container = ContainerConfig.Configure();
             using (var scope = container.BeginLifetimeScope(builder =>
