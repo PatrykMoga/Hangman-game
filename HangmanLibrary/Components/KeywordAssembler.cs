@@ -4,20 +4,20 @@ namespace HangmanLibrary.Components
 {
     public class KeywordAssembler : IKeywordAssembler
     {
-        public IVsComputer VsComputer { get; }
+        public IHasKeyword HasKeyword { get; }
         public StringBuilder Assembler { get; }
 
-        public KeywordAssembler(IVsComputer vsComputer)
+        public KeywordAssembler(IHasKeyword hasKeyword)
         {
-            VsComputer = vsComputer;
+            HasKeyword = hasKeyword;
             Assembler = new StringBuilder();
         }
 
         public void UpdateAssembler()
         {
-            for (int i = 0; i < VsComputer.Keyword.Length; i++)
+            for (int i = 0; i < HasKeyword.Keyword.Length; i++)
             {
-                if (VsComputer.Keyword[i] == ' ')
+                if (HasKeyword.Keyword[i] == ' ')
                 {
                     Assembler.Append(' ');
                 }
@@ -30,11 +30,11 @@ namespace HangmanLibrary.Components
 
         public void UpdateAssembler(string input)
         {
-            for (int j = 0; j < VsComputer.Keyword.Length; j++)
+            for (int j = 0; j < HasKeyword.Keyword.Length; j++)
             {
-                if (VsComputer.Keyword[j] == input[0])
+                if (HasKeyword.Keyword[j] == input[0])
                 {
-                    Assembler[j] = VsComputer.Keyword[j];
+                    Assembler[j] = HasKeyword.Keyword[j];
                 }
             }
         }

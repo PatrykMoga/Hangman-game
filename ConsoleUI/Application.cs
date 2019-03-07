@@ -10,17 +10,17 @@ namespace ConsoleUI
     {
         private IGlossary _glossary;
         private VsPlayerService _vsPlayerService;
-        private VsComputerService _VsComputerService;
-        public Application(IGlossary glossary, VsPlayerService vsPlayerService, VsComputerService vsComputerService)
+        private IVsComputerController _vsComputerController;
+        public Application(IGlossary glossary, VsPlayerService vsPlayerService, IVsComputerController vsComputerController)
         {
             _glossary = glossary;
             _vsPlayerService = vsPlayerService;
-            _VsComputerService = vsComputerService;
+            _vsComputerController = vsComputerController;
         }
 
         public void Run()
         {
-            _VsComputerService.StartGame();
+            _vsComputerController.StartGame();
             
         }
     }

@@ -4,7 +4,7 @@ namespace HangmanLibrary.Components
 {
     public interface IKeywordAssembler
     {
-        IVsComputer VsComputer { get; }
+        IHasKeyword HasKeyword { get; }
         StringBuilder Assembler { get; }
         
         string ToString();

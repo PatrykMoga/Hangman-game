@@ -11,19 +11,15 @@ namespace ConsoleUI
             var builder = new ContainerBuilder();
             builder.RegisterType<Application>();
             builder.RegisterType<FileGlossary>().As<IGlossary>().SingleInstance();
-            builder.RegisterType<WordsProvider>().SingleInstance();
-            builder.RegisterType<VsPlayerService>();
-            builder.RegisterType<VsPlayer>();            
-            builder.RegisterType<VsComputer>()
-                //.As<IVsComputer>()
-                .As<IVsComputer>()
-                //.As<IHasKeyword>()
-                .SingleInstance();
-            builder.RegisterType<VsComputerService>();           
+            builder.RegisterType<WordsProvider>().As<IWordsProvider>().SingleInstance();                     
+            builder.RegisterType<VsComputer>().AsSelf()
+                .As<IHasKeyword>().As<IHasLifes>().SingleInstance();
+            builder.RegisterType<VsComputerProvider>().As<IVsComputerProvider>();
+            builder.RegisterType<VsComputerController>().As<IVsComputerController>();
+            builder.RegisterType<VsPlayer>();
+            builder.RegisterType<VsPlayerService>();            
             builder.RegisterType<KeywordAssembler>().As<IKeywordAssembler>();
             builder.RegisterType<LifeController>().As<ILifeController>();
-
-
             return builder.Build();
         }
     }

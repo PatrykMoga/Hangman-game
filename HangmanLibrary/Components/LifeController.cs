@@ -6,10 +6,10 @@ namespace HangmanLibrary.Components
 {
     public class LifeController : ILifeController
     {
-        public IVsComputer HasLifes { get;}
+        public IHasLifes HasLifes { get;}
         public HashSet<char> Missplaced { get; set; }
 
-        public LifeController(IVsComputer hasLifes)
+        public LifeController(IHasLifes hasLifes)
         {
             HasLifes = hasLifes;
             HasLifes.Lifes = 12;

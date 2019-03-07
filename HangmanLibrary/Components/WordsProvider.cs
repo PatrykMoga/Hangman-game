@@ -6,17 +6,17 @@ using System.Text;
 
 namespace HangmanLibrary.Components
 {
-    public class WordsProvider
+    public class WordsProvider : IWordsProvider
     {
-        private IGlossary _glossary;
+        public IGlossary Glossary { get; }
         public List<string> Words { get; set; }
 
         public WordsProvider(IGlossary glossary)
         {
-            _glossary = glossary;
+            Glossary = glossary;
             Words = glossary.Words.ToList();
         }
 
-        public void AddWord(string word) => _glossary.AddWord(word);
+        public void AddWord(string word) => Glossary.AddWord(word);
     }
 }
