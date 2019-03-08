@@ -11,9 +11,9 @@
 
         public void EliminateWords(char ch, int index) => HasBuffer.WordsBuffer.RemoveAll(w => w[index] != ch);
 
-        public void EliminateWords(char ch, bool doesContainCharacter)
+        public void EliminateWords(char ch, bool containCharacter)
         {
-            if (doesContainCharacter)
+            if (containCharacter)
             {
                 HasBuffer.WordsBuffer.RemoveAll(w => !w.Contains(ch.ToString()));
             }

@@ -65,10 +65,9 @@ namespace ConsoleUI.Controllers
                     WriteLine($"I'm looking for your word...\n");
                     WriteLine($"Does your word contain \"{randomCharacter}\"? (Y)");
                     var input = ReadLine();
-
-                    CheckIfContains(randomCharacter, input);
-
+                    DoesContain(randomCharacter, input);
                 }
+
                 if (!GameProvider.CharacterManager.AreCharactersAvailable)
                 {
                     Clear();
@@ -104,12 +103,12 @@ namespace ConsoleUI.Controllers
                 GameProvider.WordsProvider.AddWord(input);
             }
         }
-        private void CheckIfContains(char randomCharacter, string input)
+        private void DoesContain(char randomCharacter, string input)
         {
-            var doesContain = Confirm(input);
+            var contain = Confirm(input);
 
-            GameProvider.WordsEliminator.EliminateWords(randomCharacter, doesContain);
-            GameProvider.CharacterManager.UpdateAllCharacters(randomCharacter, doesContain);
+            GameProvider.WordsEliminator.EliminateWords(randomCharacter, contain);
+            GameProvider.CharacterManager.RemoveUsed(randomCharacter, contain);
         }
 
         private bool Confirm(string input) => input.Equals("y", StringComparison.OrdinalIgnoreCase);

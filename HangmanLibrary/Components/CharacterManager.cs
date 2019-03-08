@@ -18,9 +18,9 @@ namespace HangmanLibrary.Components
             UsedCharacters = new HashSet<char>();
         }
 
-        public void UpdateAllCharacters(char ch, bool doesContainCharacter)
+        public void RemoveUsed(char ch, bool containCharacter)
         {
-            if (doesContainCharacter)
+            if (containCharacter)
             {
                 UsedCharacters.Add(ch);
             }

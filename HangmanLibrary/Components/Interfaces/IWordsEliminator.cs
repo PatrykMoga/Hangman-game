@@ -4,7 +4,7 @@
     {
         IHasBuffer HasBuffer { get; }
 
-        void EliminateWords(char ch, bool doesContainCharacter);
+        void EliminateWords(char ch, bool containCharacter);
         void EliminateWords(char ch, int index);
     }
 }

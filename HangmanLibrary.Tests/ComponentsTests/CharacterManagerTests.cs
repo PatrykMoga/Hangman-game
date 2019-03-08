@@ -32,7 +32,9 @@ namespace HangmanLibrary.Tests.ComponentsTests
 
         [Test]
         [TestCase('a')]
-        public void UpdateAllCharacters_WhenCalled_RemoveUsedCharactersFromAvailableOne(char c)
+        [TestCase('s')]
+        [TestCase('l')]
+        public void RemoveUsed_WhenCalled_RemoveUsedCharactersFromAvailableOne(char c)
         {
             using (var mock = AutoMock.GetLoose())
             {
@@ -40,7 +42,7 @@ namespace HangmanLibrary.Tests.ComponentsTests
                     .Setup(m => m.WordsBuffer).Returns(_provider.Words);
 
                 var manager = mock.Create<CharacterManager>();
-                manager.UpdateAllCharacters(c, true);
+                manager.RemoveUsed(c, true);
 
                 Assert.That(!manager.AvailableCharacters.Contains(c));
             }
