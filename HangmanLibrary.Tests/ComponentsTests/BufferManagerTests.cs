@@ -21,7 +21,7 @@ namespace HangmanLibrary.Tests.ComponentsTests
         [Test]
         [TestCase(6, 4)]
         [TestCase(5, 1)]
-        [TestCase(8, 4)]
+        [TestCase(8, 2)]
         public void LoadWords_WhenCalled_LoadWordsToBuffer(int wordLenght, int expectedBufferCount)
         {
             using(var mock = AutoMock.GetLoose())

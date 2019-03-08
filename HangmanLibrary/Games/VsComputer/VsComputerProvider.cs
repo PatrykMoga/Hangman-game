@@ -1,4 +1,5 @@
 ﻿using HangmanLibrary.Components;
+using HangmanLibrary.Glossary;
 
 namespace HangmanLibrary.Games.VsComputer
 {

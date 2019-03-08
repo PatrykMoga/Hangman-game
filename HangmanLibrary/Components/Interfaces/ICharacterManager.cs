@@ -5,7 +5,7 @@ namespace HangmanLibrary.Components
     public interface ICharacterManager
     {
         HashSet<char> AvailableCharacters { get; }
-        bool CharactersAreAvailable { get; }
+        bool AreCharactersAvailable { get; }
         IHasBuffer HasBuffer { get; }
         HashSet<char> UsedCharacters { get; }
 

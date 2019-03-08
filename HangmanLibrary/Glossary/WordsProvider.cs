@@ -1,8 +1,7 @@
-﻿using HangmanLibrary.Glossary;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace HangmanLibrary.Components
+namespace HangmanLibrary.Glossary
 {
     public class WordsProvider : IWordsProvider
     {

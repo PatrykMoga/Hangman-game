@@ -41,6 +41,6 @@ namespace HangmanLibrary.Components
         }
 
         public char GetRandomCharacter() => AvailableCharacters.ToList().GetRandomElement();
-        public bool CharactersAreAvailable => AvailableCharacters.Count > 0;
+        public bool AreCharactersAvailable => AvailableCharacters.Count > 0;
     }
 }

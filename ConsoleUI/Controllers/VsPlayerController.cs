@@ -58,7 +58,7 @@ namespace ConsoleUI.Controllers
                     }
                 }
 
-                if (GameProvider.CharacterManager.CharactersAreAvailable)
+                if (GameProvider.CharacterManager.AreCharactersAvailable)
                 {
                     Clear();
                     var randomCharacter = GameProvider.CharacterManager.GetRandomCharacter();
@@ -69,7 +69,7 @@ namespace ConsoleUI.Controllers
                     CheckIfContains(randomCharacter, input);
 
                 }
-                if (!GameProvider.CharacterManager.CharactersAreAvailable)
+                if (!GameProvider.CharacterManager.AreCharactersAvailable)
                 {
                     Clear();
                     foreach (var ch in GameProvider.CharacterManager.UsedCharacters)

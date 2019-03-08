@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using HangmanLibrary.Glossary;
 
-namespace HangmanLibrary.Components
+namespace HangmanLibrary.Glossary
 {
     public interface IWordsProvider
     {

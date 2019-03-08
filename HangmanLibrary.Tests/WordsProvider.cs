@@ -21,11 +21,6 @@ namespace HangmanLibrary.Tests
                 "access",
                 "accident",
                 "accidental",
-                "accidentally",
-                "some",
-                "somebody",
-                "somehow",
-                "terrible"
             };
         }
     }
