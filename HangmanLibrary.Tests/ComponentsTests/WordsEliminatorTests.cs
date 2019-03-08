@@ -7,7 +7,15 @@ namespace HangmanLibrary.Tests.ComponentsTests
 {
     [TestFixture]
     public class WordsEliminatorTests
-    {       
+    {
+        private WordsProvider _provider;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _provider = new WordsProvider();
+        }
+
         [Test]
         [TestCase('s', true)]
         [TestCase('c', false)]
@@ -22,7 +30,7 @@ namespace HangmanLibrary.Tests.ComponentsTests
             using (var mock = AutoMock.GetLoose())
             {
                 mock.Mock<IHasBuffer>()
-                    .Setup(m => m.WordsBuffer).Returns(Words);
+                    .Setup(m => m.WordsBuffer).Returns(_provider.Words);
 
                 mock.Create<WordsEliminator>()
                     .EliminateWords(c, eliminate);
@@ -43,24 +51,6 @@ namespace HangmanLibrary.Tests.ComponentsTests
                 }
             }
             return true;
-        }
-
-        private List<string> Words => new List<string>
-        {
-            "absorb",
-            "abuse",
-            "academic",
-            "accent",
-            "accept",
-            "acceptable",
-            "access",
-            "accident",
-            "accidental",
-            "accidentally",
-            "some",
-            "somebody",
-            "somehow",
-            "terrible"
-        };
+        }        
     }
 }
