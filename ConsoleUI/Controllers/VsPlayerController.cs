@@ -106,10 +106,10 @@ namespace ConsoleUI.Controllers
         }
         private void CheckIfContains(char randomCharacter, string input)
         {
-            var ifContains = Confirm(input);
+            var doesContain = Confirm(input);
 
-            GameProvider.WordsEliminator.EliminateWords(randomCharacter, ifContains);
-            GameProvider.CharacterManager.UpdateAllCharacters(randomCharacter, ifContains);
+            GameProvider.WordsEliminator.EliminateWords(randomCharacter, doesContain);
+            GameProvider.CharacterManager.UpdateAllCharacters(randomCharacter, doesContain);
         }
 
         private bool Confirm(string input) => input.Equals("y", StringComparison.OrdinalIgnoreCase);

@@ -10,7 +10,7 @@ namespace HangmanLibrary.Components
         HashSet<char> UsedCharacters { get; }
 
         char GetRandomCharacter();
-        void UpdateAllCharacters(char ch, bool ifContainsCharacter);
+        void UpdateAllCharacters(char ch, bool doesContainCharacter);
         void UpdateAvailableCharacters();
     }
 }

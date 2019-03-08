@@ -6,7 +6,7 @@ namespace HangmanLibrary.Glossary
     public class FileGlossary : IGlossary
     {
         //Temporarily solution
-        private readonly string _path = @".\Words.txt";
+        private readonly string _path = @"..\..\..\Words.txt";
         public HashSet<string> Words { get; set; }
         public bool BeenUpdated { get; set; }
 
